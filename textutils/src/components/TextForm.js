@@ -27,22 +27,22 @@ export default function TextForm(props) {
     }
   return (
     <>
-    <div>
+    <div className='container' style={{color: props.mode=='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
         <div className="mb-3">
         <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
-        <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows="8"></textarea>
+        <textarea className="form-control" value={text} onChange={handleOnChange} style={{background: props.mode=='dark'?'grey':'white',color: props.mode=='dark'?'white':'black'}} id="exampleFormControlTextarea1" rows="8"></textarea>
         </div>
         <div className="btn btn-primary mx-4" onClick={handleUpclick}>Convert to Uppercase</div>
         <div className="btn btn-primary mx-4" onClick={handlelocclick}>Convert to lowercase</div>
         <div className="btn btn-primary mx-4" onClick={handleclearclick}>clear text</div>
         <div className="btn btn-primary mx-4" onClick={handlecopyclick}>copy text</div>
     </div>
-    <div className='container'>
+    <div className='container' style={{color: props.mode=='dark'?'white':'black'}}>
     <h1>summary of word and character</h1>
     <p>{String(text).split(' ').length} words and {text.length} characters</p>
     <h3>Preview</h3>
-    <p>{text}</p>
+    <p>{String(text).length>0?text:"enter here to previo"}</p>
     </div>
     </>
   )
