@@ -6,6 +6,7 @@ export default function TextForm(props) {
    //console.log("clicked on" + text);
    let newtext=text.toUpperCase();
    setText(newtext)
+    props.showAlert('converted to upper case','success')
     }
     const handlelocclick=()=>{
         let newtext=text.toLowerCase();

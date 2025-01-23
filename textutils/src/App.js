@@ -8,19 +8,19 @@ import Alert from './components/Alert';
 
 
 function App() {
-    const [mode, setMode] = useState('dark');
+    const [mode, setMode] = useState('light');
    const toggleMode=()=>{
-   if(mode === 'dark')
-   {
-    setMode('light');
-    document.body.style.background='white'
-    showAlert("light mode has been enabled","success")
-   }
-   else
+   if(mode === 'light')
    {
     setMode('dark');
     document.body.style.background='grey'
     showAlert("dark mode has been enabled","success")
+   }
+   else
+   {
+    setMode('light');
+    document.body.style.background='white'
+    showAlert("light mode has been enabled","success")
    }
    }
    const [alert,setAlert] = useState("light mode","success");
@@ -29,6 +29,9 @@ function App() {
       msg:message,
       type:type
     })
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
 
    }
 
@@ -39,7 +42,7 @@ function App() {
      <Alert alert={alert}/>
      {/* <About className="container my-3"/> */}
      <div className="container my-3">
-     <TextForm heading="Enter the text to analyze" mode={mode}/>
+     <TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode}/>
      </div>
      </>
   );
