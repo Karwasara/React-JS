@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
@@ -13,7 +13,7 @@ function App() {
    if(mode === 'light')
    {
     setMode('dark');
-    document.body.style.background='grey'
+    document.body.style.background='#14376a'
     showAlert("dark mode has been enabled","success")
    }
    else
@@ -42,14 +42,13 @@ function App() {
                 <Alert alert={alert} />
                 <div className="container my-3">
                     <Routes>
-                        <Route path="/about" element={<About />} />
+                        <Route path="/about" element={<About mode={mode} />} />
                         <Route
-                            path="/"
-                            element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />}
+                            path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze" mode={mode} />}
                         />
-                    </Routes>
+                    </Routes> 
                 </div>
-            </Router>
+            </Router> 
         </>
   );
 
